@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+
 
 export default function Home() {
   const [lang, setLang] = useState("tr");
@@ -117,12 +117,12 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 lg:px-6 py-4 flex items-center justify-between">
           {/* LOGO */}
           <a href="/" className="flex items-center gap-3">
-            <Image
-              src="/logo.webp"
+            <img
+              src="/logo.png"
               alt="AlfaTeta"
               width={48}
               height={48}
-              priority
+
               className="w-9 h-9 lg:w-12 lg:h-12 object-contain"
             />
 
@@ -173,7 +173,7 @@ export default function Home() {
                     : "border-white/10"
                 }`}
               >
-                <Image
+                <img
                   src="/tr.svg"
                   alt="TR"
                   width={16}
@@ -190,7 +190,7 @@ export default function Home() {
                     : "border-white/10"
                 }`}
               >
-                <Image
+                <img
                   src="/gb.svg"
                   alt="EN"
                   width={16}
@@ -239,14 +239,16 @@ export default function Home() {
 
           {/* RIGHT */}
           <div className="flex justify-center">
-            <div className="rounded-[32px] border border-white/10 bg-zinc-950 p-10 lg:p-16">
-              <Image
-                src="/logo.webp"
+  <div className="rounded-[32px] border border-white/10 bg-zinc-950 p-10 lg:p-16">
+              <img
+                src="/logo.png"
                 alt="AlfaTeta"
-                width={320}
-                height={320}
-                priority
-                className="w-[180px] lg:w-[320px] h-auto object-contain"
+                style={{
+                  width: "320px",
+                  maxWidth: "100%",
+                  height: "auto",
+                  display: "block",
+                }}
               />
             </div>
           </div>
