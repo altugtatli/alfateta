@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Home() {
   const [lang, setLang] = useState("tr");
@@ -112,13 +113,16 @@ export default function Home() {
   return (
     <main className="bg-black text-white min-h-screen overflow-x-hidden">
       {/* HEADER */}
-      <header className="fixed top-0 left-0 w-full z-50 border-b border-white/10 bg-black/80 backdrop-blur">
+      <header className="fixed top-0 left-0 w-full z-50 border-b border-white/10 bg-black">
         <div className="max-w-7xl mx-auto px-4 lg:px-6 py-4 flex items-center justify-between">
           {/* LOGO */}
           <a href="/" className="flex items-center gap-3">
-            <img
-              src="/logo.png"
+            <Image
+              src="/logo.webp"
               alt="AlfaTeta"
+              width={48}
+              height={48}
+              priority
               className="w-9 h-9 lg:w-12 lg:h-12 object-contain"
             />
 
@@ -169,10 +173,12 @@ export default function Home() {
                     : "border-white/10"
                 }`}
               >
-                <img
+                <Image
                   src="/tr.svg"
                   alt="TR"
-                  className="w-4 h-4 rounded-full object-cover"
+                  width={16}
+                  height={16}
+                  className="rounded-full object-cover"
                 />
               </button>
 
@@ -184,10 +190,12 @@ export default function Home() {
                     : "border-white/10"
                 }`}
               >
-                <img
+                <Image
                   src="/gb.svg"
                   alt="EN"
-                  className="w-4 h-4 rounded-full object-cover"
+                  width={16}
+                  height={16}
+                  className="rounded-full object-cover"
                 />
               </button>
             </div>
@@ -231,10 +239,13 @@ export default function Home() {
 
           {/* RIGHT */}
           <div className="flex justify-center">
-            <div className="rounded-[32px] border border-white/10 bg-gradient-to-br from-blue-950 via-black to-black p-10 lg:p-16 shadow-2xl">
-              <img
-                src="/logo.png"
+            <div className="rounded-[32px] border border-white/10 bg-zinc-950 p-10 lg:p-16">
+              <Image
+                src="/logo.webp"
                 alt="AlfaTeta"
+                width={320}
+                height={320}
+                priority
                 className="w-[180px] lg:w-[320px] h-auto object-contain"
               />
             </div>
@@ -339,7 +350,7 @@ export default function Home() {
               <a
                 href="mailto:info@alfateta.net"
                 className="text-2xl lg:text-3xl break-all hover:text-blue-400 transition"
-            >
+              >
                 info@alfateta.net
               </a>
             </div>
@@ -352,7 +363,7 @@ export default function Home() {
               <a
                 href="tel:+905332254068"
                 className="text-2xl lg:text-3xl hover:text-blue-400 transition"
-                >
+              >
                 +90 533 225 4068
               </a>
             </div>
