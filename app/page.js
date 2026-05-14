@@ -1,390 +1,369 @@
-"use client";
+'use client'
 
-import { useState } from "react";
+import { useState } from 'react'
 
-
-export default function Home() {
-  const [lang, setLang] = useState("tr");
-
-  const content = {
-    tr: {
-      services: "Hizmetler",
-      approach: "Yaklaşım",
-      contact: "İletişim",
-
-      heroTop:
-        "STRATEGIC TECHNOLOGY • TRANSFORMATION • INTELLIGENCE",
-
-      title:
-        "Teknolojiyi strateji ve operasyonla yeniden tasarlıyoruz.",
-
-      description:
-        "AlfaTeta; kurumların dijital dönüşüm yolculuğunu teknoloji, veri, operasyon ve yönetim perspektiflerini aynı çatı altında birleştirerek yeniden tanımlar.",
-
-      servicesTitle: "Hizmetler",
-
-      servicesCard1: "Yapay Zeka & Dijital Dönüşüm",
-
-      servicesCard2: "Strateji & Operasyon",
-
-      servicesText:
-        "AlfaTeta; yapay zeka stratejileri, dijital dönüşüm mimarileri, BT organizasyon yapılanmaları, veri odaklı karar sistemleri ve operasyonel verimlilik alanlarında kurumlara uçtan uca danışmanlık sunar.",
-
-      servicesText2:
-        "Yönetim vizyonunu teknolojik uygulama kabiliyetiyle birleştirerek operasyon, yönetişim ve karar mekanizmalarında ölçülebilir iş etkisi oluşturur.",
-
-      approachTitle: "Yaklaşım",
-
-      approachCard1: "Stratejik Hizalanma",
-
-      approachCard2: "Operasyonel Zeka",
-
-      approachCard3: "Sürdürülebilir Dönüşüm",
-
-      approachText1:
-        "İş stratejisi ve teknoloji vizyonu birlikte tasarlanır.",
-
-      approachText2:
-        "Veri odaklı operasyonel yapılar ölçeklenebilir verimlilik sağlar.",
-
-      approachText3:
-        "AlfaTeta yalnızca teknoloji projeleri üretmez; kurumların karar alma biçimlerini ve dönüşüm kabiliyetlerini yeniden tasarlar.",
-
-      contactTitle: "İletişim",
-
-      button1: "Hizmetleri İncele",
-
-      button2: "İletişime Geç",
-    },
-
-    en: {
-      services: "Services",
-      approach: "Approach",
-      contact: "Contact",
-
-      heroTop:
-        "STRATEGIC TECHNOLOGY • TRANSFORMATION • INTELLIGENCE",
-
-      title:
-        "We redesign technology with strategy and operations.",
-
-      description:
-        "AlfaTeta redefines digital transformation journeys by integrating technology, data, operations and management perspectives under one structure.",
-
-      servicesTitle: "Services",
-
-      servicesCard1: "AI & Digital Transformation",
-
-      servicesCard2: "Strategy & Operations",
-
-      servicesText:
-        "AlfaTeta provides end-to-end consulting in AI strategy, digital transformation architectures, IT organizational design and operational excellence.",
-
-      servicesText2:
-        "AlfaTeta combines executive vision with technological execution to create measurable business impact across operations and governance.",
-
-      approachTitle: "Approach",
-
-      approachCard1: "Strategic Alignment",
-
-      approachCard2: "Operational Intelligence",
-
-      approachCard3: "Sustainable Transformation",
-
-      approachText1:
-        "Business strategy and technology vision are designed together.",
-
-      approachText2:
-        "Data-driven operational structures create scalable efficiency.",
-
-      approachText3:
-        "AlfaTeta redesigns how organizations make decisions, operate and evolve.",
-
-      contactTitle: "Contact",
-
-      button1: "Explore Services",
-
-      button2: "Contact Us",
-    },
-  };
-
-  const t = content[lang];
-
+export default function HomePage() {
+  const [lang, setLang] = useState('tr')
   return (
-    <main className="bg-black text-white min-h-screen overflow-x-hidden">
-      {/* HEADER */}
-      <header className="fixed top-0 left-0 w-full z-50 border-b border-white/10 bg-black">
-        <div className="max-w-7xl mx-auto px-4 lg:px-6 py-4 flex items-center justify-between">
-          {/* LOGO */}
-          <a href="/" className="flex items-center gap-3">
-            <img
-              src="/logo.png"
+    <main className="bg-black text-white min-h-screen overflow-hidden selection:bg-white selection:text-black">
+      {/* TOP NAVIGATION */}
+      <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-black/30 border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-8 md:px-20 h-24 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <a href="#top">
+              <img
+                src="/logo.png"
               alt="AlfaTeta"
-              width={48}
-              height={48}
+              className="h-10 w-auto opacity-95"
+              />
+            </a>
+          </div>
 
-              className="w-9 h-9 lg:w-12 lg:h-12 object-contain"
-            />
+          <nav className="hidden md:flex items-center gap-10 text-sm text-white/55 font-light tracking-wide">
+            <a href="#approach" className="hover:text-white transition-colors duration-300">
+              {lang === 'tr' ? 'Yaklaşım' : 'Approach'}
+            </a>
+            <a href="#services" className="hover:text-white transition-colors duration-300">
+              {lang === 'tr' ? 'Çalışma Alanları' : 'Focus Areas'}
+            </a>
+            <a href="#journal" className="hover:text-white transition-colors duration-300">
+              {lang === 'tr' ? 'Notlar' : 'Notes'}
+            </a>
+            <a href="#contact" className="hover:text-white transition-colors duration-300">
+              {lang === 'tr' ? 'İletişim' : 'Contact'}
+            </a>
+          </nav>
 
-            <div>
-              <div className="text-xl lg:text-3xl tracking-[0.28em] font-light">
-                ALFA
-                <span className="text-blue-500">TETA</span>
-              </div>
-
-              <div className="hidden lg:block text-xs tracking-[0.35em] text-zinc-400 mt-1">
-                INTELLIGENCE IN MOTION
-              </div>
-            </div>
-          </a>
-
-          {/* MENU */}
-          <div className="flex items-center gap-4 lg:gap-10">
-            <nav className="hidden md:flex items-center gap-8 text-sm uppercase tracking-[0.2em] text-zinc-300">
-              <a
-                href="#services"
-                className="hover:text-blue-400 transition"
-              >
-                {t.services}
-              </a>
-
-              <a
-                href="#approach"
-                className="hover:text-blue-400 transition"
-              >
-                {t.approach}
-              </a>
-
-              <a
-                href="#contact"
-                className="hover:text-blue-400 transition"
-              >
-                {t.contact}
-              </a>
-            </nav>
-
-            {/* LANGUAGE */}
-            <div className="flex items-center gap-2">
+          <div className="flex items-center gap-6">
+            <div className="hidden md:flex items-center gap-3">
               <button
-                onClick={() => setLang("tr")}
-                className={`w-9 h-9 rounded-full border flex items-center justify-center transition ${
-                  lang === "tr"
-                    ? "border-blue-500 bg-blue-500/20"
-                    : "border-white/10"
-                }`}
+                onClick={() => setLang('tr')}
+                className={`${lang === 'tr' ? 'opacity-100' : 'opacity-50'} hover:opacity-100 transition-opacity duration-300`}
               >
-                <img
-                  src="/tr.svg"
-                  alt="TR"
-                  width={16}
-                  height={16}
-                  className="rounded-full object-cover"
-                />
+                <img src="/tr.svg" alt="Türkçe" className="w-5 h-5 rounded-full object-cover" />
               </button>
 
               <button
-                onClick={() => setLang("en")}
-                className={`w-9 h-9 rounded-full border flex items-center justify-center transition ${
-                  lang === "en"
-                    ? "border-blue-500 bg-blue-500/20"
-                    : "border-white/10"
-                }`}
+                onClick={() => setLang('en')}
+                className={`${lang === 'en' ? 'opacity-100' : 'opacity-50'} hover:opacity-100 transition-opacity duration-300`}
               >
-                <img
-                  src="/gb.svg"
-                  alt="EN"
-                  width={16}
-                  height={16}
-                  className="rounded-full object-cover"
-                />
+                <img src="/gb.svg" alt="English" className="w-5 h-5 rounded-full object-cover" />
               </button>
             </div>
+
+            <a
+              href="mailto:info@alfateta.net"
+              className="hidden md:block text-sm text-white/55 hover:text-white transition-colors duration-300"
+            >
+              info@alfateta.net
+            </a>
           </div>
         </div>
       </header>
-
       {/* HERO */}
-      <section className="pt-36 lg:pt-44 pb-24 lg:pb-32 px-4 lg:px-6">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
-          {/* LEFT */}
+      <section id="top" className="relative px-8 md:px-20 pt-56 pb-32 border-b border-white/10">
+        <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-20 items-center">
           <div>
-            <div className="text-blue-500 tracking-[0.28em] text-xs lg:text-sm uppercase mb-8">
-              {t.heroTop}
+            <div className="text-[11px] tracking-[0.35em] uppercase text-white/35 mb-10">
+              AlfaTeta
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-8xl leading-tight font-light mb-10">
-              {t.title}
-            </h1>
+          <h1 className="text-5xl md:text-[110px] leading-[0.92] tracking-[-0.04em] font-light max-w-6xl">
+            {lang === 'tr' ? 'Dönüşüm teknolojiyle değil,' : 'Transformation does not begin with technology,'}
+            <br />
+            {lang === 'tr' ? 'insanla başlar.' : 'it begins with people.'}
+          </h1>
 
-            <p className="text-zinc-400 text-lg lg:text-xl leading-relaxed max-w-2xl mb-12">
-              {t.description}
-            </p>
+          <p className="mt-12 max-w-2xl text-lg md:text-xl text-white/50 leading-relaxed font-light">
+            {lang === 'tr'
+              ? 'Liderlik, gelişim, organizasyonel dönüşüm ve dijital çağ adaptasyonu üzerine çalışan bağımsız bir dönüşüm platformu.'
+              : 'An independent transformation platform focused on leadership, development, organizational transformation and digital-age adaptation.'}
+          </p>
 
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="#services"
-                className="px-7 py-4 rounded-2xl bg-blue-600 hover:bg-blue-500 transition text-white"
-              >
-                {t.button1}
-              </a>
+          <div className="flex flex-wrap gap-4 mt-14">
+            <button className="bg-white text-black px-8 py-4 rounded-full text-sm tracking-wide hover:scale-[1.03] transition-all duration-500">
+              {lang === 'tr' ? 'Yaklaşım' : 'Approach'}
+            </button>
 
-              <a
-                href="#contact"
-                className="px-7 py-4 rounded-2xl border border-white/10 hover:border-blue-500 transition"
-              >
-                {t.button2}
-              </a>
+            <button className="border border-white/15 text-white/80 px-8 py-4 rounded-full text-sm tracking-wide hover:bg-white hover:text-black transition-all duration-500">
+              {lang === 'tr' ? 'İletişim' : 'Contact'}
+            </button>
+          </div>
+        </div>
+
+          <div className="flex justify-center lg:justify-end">
+            <img
+              src="/logo.png"
+              alt="AlfaTeta Logo"
+              className="w-[150px] md:w-[220px] lg:w-[280px] h-auto opacity-90"
+            />
+          </div>
+        </div>
+
+        <div className="absolute right-[-200px] top-[-100px] w-[700px] h-[700px] bg-white/[0.03] blur-3xl rounded-full" />
+      </section>
+
+      {/* INTRO */}
+      <section className="px-8 md:px-20 py-32 border-b border-white/10">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-start">
+          <div>
+            <div className="text-[11px] tracking-[0.35em] uppercase text-white/35 mb-8">
+              {lang === 'tr' ? 'İnsan Merkezli Dönüşüm' : 'Human-Centered Transformation'}
             </div>
+
+            <h2 className="text-4xl md:text-6xl leading-[1.05] tracking-[-0.03em] font-light max-w-2xl">
+              {lang === 'tr' ? 'Dönüşüm bazen büyük kararlarla değil,' : 'Transformation rarely begins with big decisions,'}
+              <span className="text-white/45"> {lang === 'tr' ? 'küçük fark edişlerle başlıyor.' : 'but with small realizations.'}</span>
+            </h2>
           </div>
 
-          {/* RIGHT */}
-          <div className="flex justify-center">
-  <div className="rounded-[32px] border border-white/10 bg-zinc-950 p-10 lg:p-16">
-              <img
-                src="/logo.png"
-                alt="AlfaTeta"
-                style={{
-                  width: "320px",
-                  maxWidth: "100%",
-                  height: "auto",
-                  display: "block",
-                }}
-              />
+          <div className="text-white/55 text-lg leading-[1.9] font-light max-w-2xl space-y-7">
+            <p>
+              {lang === 'tr' ? 'Bir ekibin çalışma biçimi değişir.' : 'The way a team works begins to shift.'}
+              <br />
+              {lang === 'tr' ? 'İnsanlar birbirini biraz daha dikkatli dinlemeye başlar.' : 'People start listening to each other more carefully.'}
+              <br />
+              {lang === 'tr' ? 'Kararlar netleşir.' : 'Decisions become clearer.'}
+              <br />
+              {lang === 'tr' ? 'Tempo biraz olsun nefes alır.' : 'The pace finally finds room to breathe.'}
+            </p>
+
+            <p>
+              {lang === 'tr' ? 'Dışarıdan bakınca çok büyük görünmez.' : 'From the outside, it may not look dramatic.'}
+            </p>
+
+            <p>
+              {lang === 'tr' ? 'Ama kalıcı değişim çoğu zaman böyle ilerler.' : 'But lasting change often moves this way.'}
+            </p>
+
+            <p>
+              {lang === 'tr' ? 'Sessizce.' : 'Quietly.'}
+              <br />
+              {lang === 'tr' ? 'İnsanların birbirleriyle' : 'When the relationship between people'}
+              <br />
+              {lang === 'tr' ? 've yaptıkları işle kurduğu ilişki değişmeye başladığında.' : 'and the work they do begins to change.'}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* APPROACH */}
+      <section id="approach" className="px-8 md:px-20 py-36 border-b border-white/10">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-[11px] tracking-[0.35em] uppercase text-white/35 mb-8">
+            {lang === 'tr' ? 'Yaklaşım' : 'Approach'}
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-20 items-start">
+            <div>
+              <h2 className="text-4xl md:text-6xl leading-[1.05] tracking-[-0.03em] font-light max-w-3xl">
+                {lang === 'tr' ? 'Her şeyi yeniden kurmak gerekmiyor bazen.' : 'Sometimes everything does not need rebuilding.'}
+              </h2>
+            </div>
+
+            <div className="space-y-8 text-lg leading-[1.9] text-white/55 font-light max-w-2xl">
+              <p>
+                {lang === 'tr' ? 'Nasıl çalıştığımızı,' : 'The way we work,'}
+                <br />
+                {lang === 'tr' ? 'nasıl karar verdiğimizi,' : 'how we make decisions,'}
+                <br />
+                {lang === 'tr' ? 'birbirimizi nasıl duyduğumuzu yeniden görmek yetebiliyor.' : 'how we truly hear each other — sometimes seeing these again is enough.'}
+              </p>
+
+              <p>
+                {lang === 'tr' ? 'Teknoloji bu sürecin bir parçası.' : 'Technology is part of the process.'}
+                <br />
+                {lang === 'tr' ? 'Ama merkezinde insan var.' : 'But people remain at the center.'}
+              </p>
+
+              <p>
+                {lang === 'tr' ? 'Liderlik.' : 'Leadership.'}
+                <br />
+                {lang === 'tr' ? 'İletişim' : 'Contact'}.
+                <br />
+                {lang === 'tr' ? 'Düşünme biçimi.' : 'Ways of thinking.'}
+                <br />
+                {lang === 'tr' ? 'Organizasyon kültürü.' : 'Organizational culture.'}
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* SERVICES */}
-      <section
-        id="services"
-        className="py-24 border-t border-white/10 px-4 lg:px-6"
-      >
+      <section id="services" className="px-8 md:px-20 py-36 border-b border-white/10">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl lg:text-5xl text-blue-500 mb-10">
-            {t.servicesTitle}
-          </h2>
+          <div className="text-[11px] tracking-[0.35em] uppercase text-white/35 mb-8">
+            {lang === 'tr' ? 'Çalışma Alanları' : 'Focus Areas'}
+          </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            <div className="p-8 rounded-3xl border border-white/10 bg-white/[0.02]">
-              <div className="text-2xl mb-5">
-                {t.servicesCard1}
+          <div className="space-y-0 border-t border-white/10">
+            {[
+              {
+                title: lang === 'tr' ? 'Liderlik ve Yönetim Gelişimi' : 'Leadership and Executive Development',
+                text: lang === 'tr'
+                  ? 'Yönetici gelişimi, executive mentoring, karar sistemleri ve yeni dönem liderlik yaklaşımları.'
+                  : 'Executive development, mentoring, decision systems and contemporary leadership approaches.',
+              },
+              {
+                title: lang === 'tr' ? 'Organizasyonel Dönüşüm' : 'Organizational Transformation',
+                text: lang === 'tr'
+                  ? 'Kültürel dönüşüm, değişim süreçleri ve insan odaklı organizasyon yapıları.'
+                  : 'Cultural transformation, change processes and human-centered organizational structures.',
+              },
+              {
+                title: lang === 'tr' ? 'Dijital Dönüşüm' : 'Digital Transformation',
+                text: lang === 'tr'
+                  ? 'Teknolojiyi insan ve organizasyon gelişimini destekleyen stratejik bir araç olarak konumlandırmak.'
+                  : 'Positioning technology as a strategic tool that supports people and organizational development.',
+              },
+              {
+                title: lang === 'tr' ? 'Düşünsel Gelişim' : 'Perspective and Cognitive Development',
+                text: lang === 'tr'
+                  ? 'Davranış, iletişim, karar psikolojisi ve multidisipliner düşünme sistemleri üzerine çalışmalar.'
+                  : 'Work focused on behavior, communication, decision psychology and multidisciplinary thinking systems.',
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="grid md:grid-cols-2 gap-10 py-14 border-b border-white/10"
+              >
+                <div>
+                  <h3 className="text-3xl md:text-5xl tracking-[-0.03em] font-light leading-[1.1]">
+                    {item.title}
+                  </h3>
+                </div>
+
+                <div>
+                  <p className="text-lg leading-[1.9] text-white/50 font-light max-w-xl">
+                    {item.text}
+                  </p>
+                </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-              <p className="text-zinc-400 leading-relaxed">
-                {t.servicesText}
-              </p>
+      {/* FOR WHO */}
+      <section className="px-8 md:px-20 py-36 border-b border-white/10">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20">
+          <div>
+            <div className="text-[11px] tracking-[0.35em] uppercase text-white/35 mb-8">
+              {lang === 'tr' ? 'Organizasyonlar İçin' : 'For Organizations'}
             </div>
 
-            <div className="p-8 rounded-3xl border border-white/10 bg-white/[0.02]">
-              <div className="text-2xl mb-5">
-                {t.servicesCard2}
-              </div>
+            <div className="space-y-5 text-white/55 text-lg leading-[1.9] font-light">
+              <p>{lang === 'tr' ? 'Üst yönetim ekipleri.' : 'Executive leadership teams.'}</p>
+              <p>Dönüşüm süreçleri yaşayan organizasyonlar.</p>
+              <p>Liderlik kültürünü yeniden düşünmek isteyen yapılar.</p>
+              <p>İnsan ve teknoloji arasında daha sağlıklı bir denge arayan ekipler.</p>
+            </div>
+          </div>
 
-              <p className="text-zinc-400 leading-relaxed">
-                {t.servicesText2}
-              </p>
+          <div>
+            <div className="text-[11px] tracking-[0.35em] uppercase text-white/35 mb-8">
+              {lang === 'tr' ? 'Bireyler İçin' : 'For Individuals'}
+            </div>
+
+            <div className="space-y-5 text-white/55 text-lg leading-[1.9] font-light">
+              <p>{lang === 'tr' ? 'Kariyerinde yeni bir döneme girenler.' : 'People entering a new phase in their careers.'}</p>
+              <p>Liderlik rolü üstlenen profesyoneller.</p>
+              <p>Kendini yeniden yapılandırmak isteyenler.</p>
+              <p>Daha sürdürülebilir bir çalışma ve düşünme biçimi arayanlar.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* APPROACH */}
-      <section
-        id="approach"
-        className="py-24 border-t border-white/10 px-4 lg:px-6"
-      >
+      {/* INSIGHT */}
+      <section id="journal" className="px-8 md:px-20 py-36 border-b border-white/10">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl lg:text-5xl text-blue-500 mb-10">
-            {t.approachTitle}
-          </h2>
+          <div className="text-[11px] tracking-[0.35em] uppercase text-white/35 mb-10">
+            {lang === 'tr' ? 'Notlar' : 'Notes'}
+          </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            <div className="p-8 rounded-3xl border border-white/10 bg-white/[0.02]">
-              <div className="text-2xl mb-5">
-                {t.approachCard1}
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              lang === 'tr'
+                ? 'Liderlik bazen cevap vermekten çok, alan açabilmekle ilgili.'
+                : 'Leadership is sometimes less about answers, and more about creating space.',
+              lang === 'tr'
+                ? 'Bir organizasyonun tonu değiştiğinde birçok şey sessizce değişmeye başlıyor.'
+                : 'When the tone of an organization changes, many things begin to shift quietly.',
+              lang === 'tr'
+                ? 'Bazı problemler çözüm eksikliğinden değil, sürekli hızlanmaktan oluşuyor.'
+                : 'Some problems come not from lack of solutions, but from constant acceleration.',
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="border border-white/10 rounded-[30px] p-10 min-h-[260px] flex items-end bg-white/[0.015]"
+              >
+                <p className="text-2xl leading-[1.5] tracking-[-0.02em] text-white/75 font-light">
+                  {item}
+                </p>
               </div>
-
-              <p className="text-zinc-400 leading-relaxed">
-                {t.approachText1}
-              </p>
-            </div>
-
-            <div className="p-8 rounded-3xl border border-white/10 bg-white/[0.02]">
-              <div className="text-2xl mb-5">
-                {t.approachCard2}
-              </div>
-
-              <p className="text-zinc-400 leading-relaxed">
-                {t.approachText2}
-              </p>
-            </div>
-
-            <div className="p-8 rounded-3xl border border-white/10 bg-white/[0.02]">
-              <div className="text-2xl mb-5">
-                {t.approachCard3}
-              </div>
-
-              <p className="text-zinc-400 leading-relaxed">
-                {t.approachText3}
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CONTACT */}
-      <section
-        id="contact"
-        className="py-24 border-t border-white/10 px-4 lg:px-6"
-      >
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl lg:text-5xl text-blue-500 mb-10">
-            {t.contactTitle}
+      {/* CLOSING */}
+      <section id="contact" className="px-8 md:px-20 py-44 relative overflow-hidden">
+        <div className="max-w-5xl mx-auto relative z-10 text-center">
+          <div className="text-[11px] tracking-[0.35em] uppercase text-white/35 mb-8">
+            AlfaTeta
+          </div>
+
+          <h2 className="text-5xl md:text-[92px] leading-[0.95] tracking-[-0.04em] font-light">
+            {lang === 'tr' ? 'Her şeyi aynı anda çözmek gerekmiyor.' : 'Not everything needs to be solved at once.'}
           </h2>
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            <div className="p-8 lg:p-10 rounded-3xl border border-white/10 bg-white/[0.02]">
-              <div className="text-zinc-400 uppercase tracking-[0.25em] text-sm mb-5">
-                EMAIL
-              </div>
+          <p className="mt-12 text-lg md:text-xl text-white/50 leading-[1.9] font-light max-w-2xl mx-auto">
+            Bazen doğru birkaç şeyi daha net görmek,
+            dönüşüm için yeterli oluyor.
+          </p>
 
-              <a
-                href="mailto:info@alfateta.net"
-                className="text-2xl lg:text-3xl break-all hover:text-blue-400 transition"
-              >
-                info@alfateta.net
-              </a>
-            </div>
-
-            <div className="p-8 lg:p-10 rounded-3xl border border-white/10 bg-white/[0.02]">
-              <div className="text-zinc-400 uppercase tracking-[0.25em] text-sm mb-5">
-                PHONE
-              </div>
-
-              <a
-                href="tel:+905332254068"
-                className="text-2xl lg:text-3xl hover:text-blue-400 transition"
-              >
-                +90 533 225 4068
-              </a>
-            </div>
-          </div>
+          <button className="mt-16 bg-white text-black px-10 py-5 rounded-full text-sm tracking-wide hover:scale-[1.03] transition-all duration-500">
+            {lang === 'tr' ? 'İletişim' : 'Contact'}e Geç
+          </button>
         </div>
+
+        <div className="absolute bottom-[-250px] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-white/[0.03] blur-3xl rounded-full" />
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/10 py-10 px-4 lg:px-6">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-5">
-          <div className="text-zinc-500 text-sm">
-            © 2026 AlfaTeta. All rights reserved.
+      <footer className="px-8 md:px-20 py-14 border-t border-white/5 bg-black">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
+          <div>
+            <img
+              src="/logo.png"
+              alt="AlfaTeta"
+              className="h-10 w-auto opacity-90"
+            />
           </div>
 
-          <div className="text-zinc-500 text-sm tracking-[0.2em]">
-            INTELLIGENCE IN MOTION
+          <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12 text-sm text-white/45 font-light">
+            <a
+              href="mailto:info@alfateta.net"
+              className="hover:text-white transition-colors duration-300"
+            >
+              info@alfateta.net
+            </a>
+
+            <a
+              href="tel:+905555555555"
+              className="hover:text-white transition-colors duration-300"
+            >
+              +90 533 225 4068
+            </a>
+
+            <div className="text-white/25">
+              Leadership • Transformation • Development
+            </div>
           </div>
         </div>
       </footer>
     </main>
-  );
+  )
 }
