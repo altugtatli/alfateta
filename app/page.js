@@ -59,6 +59,26 @@ export default function HomePage() {
             </a>
           </div>
         </div>
+      
+
+        {/* MOBILE MENU */}
+        <div className="md:hidden border-t border-white/5 px-6 py-4 flex items-center justify-between text-[11px] uppercase tracking-[0.18em] text-white/50 overflow-x-auto gap-6">
+          <a href="#approach" className="whitespace-nowrap">
+            {lang === 'tr' ? 'Yaklaşım' : 'Approach'}
+          </a>
+
+          <a href="#services" className="whitespace-nowrap">
+            {lang === 'tr' ? 'Alanlar' : 'Areas'}
+          </a>
+
+          <a href="#journal" className="whitespace-nowrap">
+            {lang === 'tr' ? 'Notlar' : 'Notes'}
+          </a>
+
+          <a href="#contact" className="whitespace-nowrap">
+            {lang === 'tr' ? 'İletişim' : 'Contact'}
+          </a>
+        </div>
       </header>
       {/* HERO */}
       <section id="top" className="relative px-8 md:px-20 pt-56 pb-32 border-b border-white/10">
