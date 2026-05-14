@@ -78,6 +78,22 @@ export default function HomePage() {
           <a href="#contact" className="whitespace-nowrap">
             {lang === 'tr' ? 'İletişim' : 'Contact'}
           </a>
+
+          <div className="flex items-center gap-3 pl-2">
+            <button
+              onClick={() => setLang('tr')}
+              className={`${lang === 'tr' ? 'opacity-100' : 'opacity-40'} transition-opacity duration-300`}
+            >
+              <img src="/tr.svg" alt="TR" className="w-4 h-4 rounded-full" />
+            </button>
+
+            <button
+              onClick={() => setLang('en')}
+              className={`${lang === 'en' ? 'opacity-100' : 'opacity-40'} transition-opacity duration-300`}
+            >
+              <img src="/gb.svg" alt="EN" className="w-4 h-4 rounded-full" />
+            </button>
+          </div>
         </div>
       </header>
       {/* HERO */}
