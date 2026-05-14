@@ -34,26 +34,26 @@ export default function HomePage() {
             </a>
           </nav>
 
-          <div className="flex items-center gap-6">
-            <div className="hidden md:flex items-center gap-3">
+          <div className="flex items-center gap-3 md:gap-6">
+            <div className="flex items-center gap-2 md:gap-3">
               <button
                 onClick={() => setLang('tr')}
                 className={`${lang === 'tr' ? 'opacity-100' : 'opacity-50'} hover:opacity-100 transition-opacity duration-300`}
               >
-                <img src="/tr.svg" alt="Türkçe" className="w-5 h-5 rounded-full object-cover" />
+                <img src="/tr.svg" alt="Türkçe" className="w-4 h-4 md:w-5 md:h-5 rounded-full object-cover border border-white/10" />
               </button>
 
               <button
                 onClick={() => setLang('en')}
                 className={`${lang === 'en' ? 'opacity-100' : 'opacity-50'} hover:opacity-100 transition-opacity duration-300`}
               >
-                <img src="/gb.svg" alt="English" className="w-5 h-5 rounded-full object-cover" />
+                <img src="/gb.svg" alt="English" className="w-4 h-4 md:w-5 md:h-5 rounded-full object-cover border border-white/10" />
               </button>
             </div>
 
             <a
               href="mailto:info@alfateta.net"
-              className="hidden md:block text-sm text-white/55 hover:text-white transition-colors duration-300"
+              className="hidden lg:block text-sm text-white/55 hover:text-white transition-colors duration-300"
             >
               info@alfateta.net
             </a>
