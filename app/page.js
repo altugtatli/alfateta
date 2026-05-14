@@ -4,33 +4,145 @@ import { useState } from 'react'
 
 export default function HomePage() {
   const [lang, setLang] = useState('tr')
+
+  const content = {
+    tr: {
+      nav: {
+        approach: 'Yaklaşım',
+        areas: 'Çalışma Alanları',
+        notes: 'Notlar',
+        contact: 'İletişim',
+      },
+      hero: {
+        title: 'İnsan merkezli.\nDüşünsel.\nDönüştürücü.',
+        subtitle:
+          'Liderlik, gelişim, organizasyonel dönüşüm ve dijital çağ adaptasyonu üzerine çalışan bağımsız bir dönüşüm platformu.',
+      },
+      approach: {
+        title: 'Yaklaşım',
+        text: [
+          'Dönüşüm bazen büyük kararlarla değil, küçük fark edişlerle başlıyor.',
+          'Bir ekibin çalışma biçimi değişiyor. İnsanlar birbirini biraz daha dikkatli dinliyor. Kararlar netleşiyor.',
+          'Dışarıdan bakınca çok büyük görünmeyebilir. Ama kalıcı değişim çoğu zaman böyle ilerliyor.',
+        ],
+      },
+      areas: {
+        title: 'Çalışma Alanları',
+        items: [
+          {
+            title: 'Liderlik ve Yönetim Gelişimi',
+            text: 'Yönetici gelişimi, executive mentoring ve yeni dönem liderlik yaklaşımları.',
+          },
+          {
+            title: 'Organizasyonel Dönüşüm',
+            text: 'Kültürel dönüşüm, değişim süreçleri ve insan odaklı organizasyon yapıları.',
+          },
+          {
+            title: 'Dijital Dönüşüm',
+            text: 'Teknolojiyi insan ve organizasyon gelişimini destekleyen stratejik bir araç olarak konumlandırmak.',
+          },
+          {
+            title: 'Düşünsel Gelişim',
+            text: 'Davranış, iletişim ve multidisipliner düşünme sistemleri üzerine çalışmalar.',
+          },
+        ],
+      },
+      notes: {
+        title: 'Notlar',
+        items: [
+          'Liderlik bazen cevap vermekten çok, alan açabilmekle ilgili.',
+          'Bir organizasyonun tonu değiştiğinde birçok şey sessizce değişmeye başlıyor.',
+          'Bazı problemler çözüm eksikliğinden değil, sürekli hızlanmaktan oluşuyor.',
+        ],
+      },
+      footer: {
+        closing:
+          'Her şeyi aynı anda çözmek gerekmiyor.\nBazen birkaç şeyi daha net görmek yeterli.',
+      },
+    },
+
+    en: {
+      nav: {
+        approach: 'Approach',
+        areas: 'Focus Areas',
+        notes: 'Notes',
+        contact: 'Contact',
+      },
+      hero: {
+        title: 'Human-centered.\nThoughtful.\nTransformative.',
+        subtitle:
+          'An independent transformation platform focused on leadership, development, organizational transformation and digital-age adaptation.',
+      },
+      approach: {
+        title: 'Approach',
+        text: [
+          'Transformation rarely begins with big decisions. It often starts with small realizations.',
+          'The way teams work begins to shift. People listen more carefully. Decisions become clearer.',
+          'From the outside, it may not look dramatic. But lasting change often moves this way.',
+        ],
+      },
+      areas: {
+        title: 'Focus Areas',
+        items: [
+          {
+            title: 'Leadership and Executive Development',
+            text: 'Executive development, mentoring and contemporary leadership approaches.',
+          },
+          {
+            title: 'Organizational Transformation',
+            text: 'Cultural transformation, change processes and human-centered structures.',
+          },
+          {
+            title: 'Digital Transformation',
+            text: 'Positioning technology as a strategic tool that supports people and organizations.',
+          },
+          {
+            title: 'Perspective Development',
+            text: 'Work focused on communication, behavior and multidisciplinary thinking systems.',
+          },
+        ],
+      },
+      notes: {
+        title: 'Notes',
+        items: [
+          'Leadership is sometimes less about answers, and more about creating space.',
+          'When the tone of an organization changes, many things begin to shift quietly.',
+          'Some problems come not from lack of solutions, but from constant acceleration.',
+        ],
+      },
+      footer: {
+        closing:
+          'Not everything needs to be solved at once.\nSometimes clarity is enough.',
+      },
+    },
+  }
+
+  const t = content[lang]
+
   return (
-    <main className="bg-black text-white min-h-screen overflow-hidden selection:bg-white selection:text-black">
-      {/* TOP NAVIGATION */}
-      <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-black/30 border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-8 md:px-20 h-24 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <a href="#top">
-              <img
-                src="/logo.png"
+    <main className="bg-black text-white min-h-screen scroll-smooth">
+      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/70 border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
+          <a href="#top" className="flex items-center">
+            <img
+              src="/logo.png"
               alt="AlfaTeta"
               className="h-10 w-auto opacity-95"
-              />
-            </a>
-          </div>
+            />
+          </a>
 
-          <nav className="hidden md:flex items-center gap-10 text-sm text-white/55 font-light tracking-wide">
+          <nav className="hidden md:flex items-center gap-10 text-sm text-white/55 tracking-wide">
             <a href="#approach" className="hover:text-white transition-colors duration-300">
-              {lang === 'tr' ? 'Yaklaşım' : 'Approach'}
+              {t.nav.approach}
             </a>
-            <a href="#services" className="hover:text-white transition-colors duration-300">
-              {lang === 'tr' ? 'Çalışma Alanları' : 'Focus Areas'}
+            <a href="#areas" className="hover:text-white transition-colors duration-300">
+              {t.nav.areas}
             </a>
-            <a href="#journal" className="hover:text-white transition-colors duration-300">
-              {lang === 'tr' ? 'Notlar' : 'Notes'}
+            <a href="#notes" className="hover:text-white transition-colors duration-300">
+              {t.nav.notes}
             </a>
             <a href="#contact" className="hover:text-white transition-colors duration-300">
-              {lang === 'tr' ? 'İletişim' : 'Contact'}
+              {t.nav.contact}
             </a>
           </nav>
 
@@ -38,18 +150,34 @@ export default function HomePage() {
             <div className="flex items-center gap-2 md:gap-3">
               <button
                 onClick={() => setLang('tr')}
-                className={`${lang === 'tr' ? 'opacity-100' : 'opacity-50'} hover:opacity-100 transition-opacity duration-300`}
+                className={`${lang === 'tr' ? 'opacity-100' : 'opacity-40'} transition-opacity duration-300`}
               >
-                <img src="/tr.svg" alt="Türkçe" className="w-4 h-4 md:w-5 md:h-5 rounded-full object-cover border border-white/10" />
+                <img src="/tr.svg" alt="TR" className="w-4 h-4 md:w-5 md:h-5 rounded-full" />
               </button>
 
               <button
                 onClick={() => setLang('en')}
-                className={`${lang === 'en' ? 'opacity-100' : 'opacity-50'} hover:opacity-100 transition-opacity duration-300`}
+                className={`${lang === 'en' ? 'opacity-100' : 'opacity-40'} transition-opacity duration-300`}
               >
-                <img src="/gb.svg" alt="English" className="w-4 h-4 md:w-5 md:h-5 rounded-full object-cover border border-white/10" />
+                <img src="/gb.svg" alt="EN" className="w-4 h-4 md:w-5 md:h-5 rounded-full" />
               </button>
             </div>
+
+            <a
+              href="https://www.linkedin.com/company/alfateta"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="opacity-60 hover:opacity-100 transition-opacity duration-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="w-4 h-4 text-white"
+              >
+                <path d="M4.98 3.5C4.98 4.604 4.104 5.5 3 5.5S1.02 4.604 1.02 3.5 1.896 1.5 3 1.5s1.98.896 1.98 2zM1.5 8h3V22h-3V8zm7.5 0h2.877v1.909h.041c.401-.761 1.381-1.563 2.844-1.563 3.042 0 3.604 2.002 3.604 4.604V22h-3v-6.75c0-1.611-.029-3.682-2.244-3.682-2.247 0-2.592 1.755-2.592 3.566V22h-3V8z" />
+              </svg>
+            </a>
 
             <a
               href="mailto:info@alfateta.net"
@@ -59,75 +187,35 @@ export default function HomePage() {
             </a>
           </div>
         </div>
-      
 
-        {/* MOBILE MENU */}
         <div className="md:hidden border-t border-white/5 px-6 py-4 flex items-center justify-between text-[11px] uppercase tracking-[0.18em] text-white/50 overflow-x-auto gap-6">
-          <a href="#approach" className="whitespace-nowrap">
-            {lang === 'tr' ? 'Yaklaşım' : 'Approach'}
-          </a>
-
-          <a href="#services" className="whitespace-nowrap">
-            {lang === 'tr' ? 'Alanlar' : 'Areas'}
-          </a>
-
-          <a href="#journal" className="whitespace-nowrap">
-            {lang === 'tr' ? 'Notlar' : 'Notes'}
-          </a>
-
-          <a href="#contact" className="whitespace-nowrap">
-            {lang === 'tr' ? 'İletişim' : 'Contact'}
-          </a>
-
-          <div className="flex items-center gap-3 pl-2">
-            <button
-              onClick={() => setLang('tr')}
-              className={`${lang === 'tr' ? 'opacity-100' : 'opacity-40'} transition-opacity duration-300`}
-            >
-              <img src="/tr.svg" alt="TR" className="w-4 h-4 rounded-full" />
-            </button>
-
-            <button
-              onClick={() => setLang('en')}
-              className={`${lang === 'en' ? 'opacity-100' : 'opacity-40'} transition-opacity duration-300`}
-            >
-              <img src="/gb.svg" alt="EN" className="w-4 h-4 rounded-full" />
-            </button>
-          </div>
+          <a href="#approach">{t.nav.approach}</a>
+          <a href="#areas">{t.nav.areas}</a>
+          <a href="#notes">{t.nav.notes}</a>
+          <a href="#contact">{t.nav.contact}</a>
         </div>
       </header>
-      {/* HERO */}
-      <section id="top" className="relative px-8 md:px-20 pt-56 pb-32 border-b border-white/10">
-        <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-20 items-center">
+
+      <section
+        id="top"
+        className="min-h-screen flex items-center pt-40 pb-24 px-6 md:px-10"
+      >
+        <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-20 items-center">
           <div>
-            <div className="text-[11px] tracking-[0.35em] uppercase text-white/35 mb-10">
-              AlfaTeta
+            <div className="text-white/35 uppercase tracking-[0.4em] text-xs mb-10">
+              ALFATETA
             </div>
 
-          <h1 className="text-5xl md:text-[110px] leading-[0.92] tracking-[-0.04em] font-light max-w-6xl">
-            {lang === 'tr' ? 'Dönüşüm teknolojiyle değil,' : 'Transformation does not begin with technology,'}
-            <br />
-            {lang === 'tr' ? 'insanla başlar.' : 'it begins with people.'}
-          </h1>
+            <h1 className="text-6xl md:text-8xl leading-[0.95] font-light tracking-tight whitespace-pre-line">
+              {t.hero.title}
+            </h1>
 
-          <p className="mt-12 max-w-2xl text-lg md:text-xl text-white/50 leading-relaxed font-light">
-            {lang === 'tr'
-              ? 'Liderlik, gelişim, organizasyonel dönüşüm ve dijital çağ adaptasyonu üzerine çalışan bağımsız bir dönüşüm platformu.'
-              : 'An independent transformation platform focused on leadership, development, organizational transformation and digital-age adaptation.'}
-          </p>
-
-          <div className="flex flex-wrap gap-4 mt-14">
-            <button className="bg-white text-black px-8 py-4 rounded-full text-sm tracking-wide hover:scale-[1.03] transition-all duration-500">
-              {lang === 'tr' ? 'Yaklaşım' : 'Approach'}
-            </button>
-
-            <button className="border border-white/15 text-white/80 px-8 py-4 rounded-full text-sm tracking-wide hover:bg-white hover:text-black transition-all duration-500">
-              {lang === 'tr' ? 'İletişim' : 'Contact'}
-            </button>
+            <p className="mt-12 text-xl text-white/45 leading-relaxed max-w-2xl font-light">
+              {t.hero.subtitle}
+            </p>
           </div>
-        </div>
 
-          <div className="flex justify-center lg:justify-end">
+          <div className="flex items-center justify-center">
             <img
               src="/logo.png"
               alt="AlfaTeta Logo"
@@ -135,207 +223,51 @@ export default function HomePage() {
             />
           </div>
         </div>
-
-        <div className="absolute right-[-200px] top-[-100px] w-[700px] h-[700px] bg-white/[0.03] blur-3xl rounded-full" />
       </section>
 
-      {/* INTRO */}
-      <section className="px-8 md:px-20 py-32 border-b border-white/10">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-start">
-          <div>
-            <div className="text-[11px] tracking-[0.35em] uppercase text-white/35 mb-8">
-              {lang === 'tr' ? 'İnsan Merkezli Dönüşüm' : 'Human-Centered Transformation'}
-            </div>
+      <section id="approach" className="px-6 md:px-10 py-32 border-t border-white/5">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-sm uppercase tracking-[0.35em] text-white/30 mb-16">
+            {t.approach.title}
+          </h2>
 
-            <h2 className="text-4xl md:text-6xl leading-[1.05] tracking-[-0.03em] font-light max-w-2xl">
-              {lang === 'tr' ? 'Dönüşüm bazen büyük kararlarla değil,' : 'Transformation rarely begins with big decisions,'}
-              <span className="text-white/45"> {lang === 'tr' ? 'küçük fark edişlerle başlıyor.' : 'but with small realizations.'}</span>
-            </h2>
-          </div>
-
-          <div className="text-white/55 text-lg leading-[1.9] font-light max-w-2xl space-y-7">
-            <p>
-              {lang === 'tr' ? 'Bir ekibin çalışma biçimi değişir.' : 'The way a team works begins to shift.'}
-              <br />
-              {lang === 'tr' ? 'İnsanlar birbirini biraz daha dikkatli dinlemeye başlar.' : 'People start listening to each other more carefully.'}
-              <br />
-              {lang === 'tr' ? 'Kararlar netleşir.' : 'Decisions become clearer.'}
-              <br />
-              {lang === 'tr' ? 'Tempo biraz olsun nefes alır.' : 'The pace finally finds room to breathe.'}
-            </p>
-
-            <p>
-              {lang === 'tr' ? 'Dışarıdan bakınca çok büyük görünmez.' : 'From the outside, it may not look dramatic.'}
-            </p>
-
-            <p>
-              {lang === 'tr' ? 'Ama kalıcı değişim çoğu zaman böyle ilerler.' : 'But lasting change often moves this way.'}
-            </p>
-
-            <p>
-              {lang === 'tr' ? 'Sessizce.' : 'Quietly.'}
-              <br />
-              {lang === 'tr' ? 'İnsanların birbirleriyle' : 'When the relationship between people'}
-              <br />
-              {lang === 'tr' ? 've yaptıkları işle kurduğu ilişki değişmeye başladığında.' : 'and the work they do begins to change.'}
-            </p>
+          <div className="space-y-10 text-2xl md:text-3xl leading-relaxed text-white/80 font-light">
+            {t.approach.text.map((item, index) => (
+              <p key={index}>{item}</p>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* APPROACH */}
-      <section id="approach" className="px-8 md:px-20 py-36 border-b border-white/10">
+      <section id="areas" className="px-6 md:px-10 py-32 border-t border-white/5">
         <div className="max-w-7xl mx-auto">
-          <div className="text-[11px] tracking-[0.35em] uppercase text-white/35 mb-8">
-            {lang === 'tr' ? 'Yaklaşım' : 'Approach'}
-          </div>
+          <h2 className="text-sm uppercase tracking-[0.35em] text-white/30 mb-16">
+            {t.areas.title}
+          </h2>
 
-          <div className="grid md:grid-cols-2 gap-20 items-start">
-            <div>
-              <h2 className="text-4xl md:text-6xl leading-[1.05] tracking-[-0.03em] font-light max-w-3xl">
-                {lang === 'tr' ? 'Her şeyi yeniden kurmak gerekmiyor bazen.' : 'Sometimes everything does not need rebuilding.'}
-              </h2>
-            </div>
-
-            <div className="space-y-8 text-lg leading-[1.9] text-white/55 font-light max-w-2xl">
-              <p>
-                {lang === 'tr' ? 'Nasıl çalıştığımızı,' : 'The way we work,'}
-                <br />
-                {lang === 'tr' ? 'nasıl karar verdiğimizi,' : 'how we make decisions,'}
-                <br />
-                {lang === 'tr' ? 'birbirimizi nasıl duyduğumuzu yeniden görmek yetebiliyor.' : 'how we truly hear each other — sometimes seeing these again is enough.'}
-              </p>
-
-              <p>
-                {lang === 'tr' ? 'Teknoloji bu sürecin bir parçası.' : 'Technology is part of the process.'}
-                <br />
-                {lang === 'tr' ? 'Ama merkezinde insan var.' : 'But people remain at the center.'}
-              </p>
-
-              <p>
-                {lang === 'tr' ? 'Liderlik.' : 'Leadership.'}
-                <br />
-                {lang === 'tr' ? 'İletişim' : 'Contact'}.
-                <br />
-                {lang === 'tr' ? 'Düşünme biçimi.' : 'Ways of thinking.'}
-                <br />
-                {lang === 'tr' ? 'Organizasyon kültürü.' : 'Organizational culture.'}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICES */}
-      <section id="services" className="px-8 md:px-20 py-36 border-b border-white/10">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-[11px] tracking-[0.35em] uppercase text-white/35 mb-8">
-            {lang === 'tr' ? 'Çalışma Alanları' : 'Focus Areas'}
-          </div>
-
-          <div className="space-y-0 border-t border-white/10">
-            {[
-              {
-                title: lang === 'tr' ? 'Liderlik ve Yönetim Gelişimi' : 'Leadership and Executive Development',
-                text: lang === 'tr'
-                  ? 'Yönetici gelişimi, executive mentoring, karar sistemleri ve yeni dönem liderlik yaklaşımları.'
-                  : 'Executive development, mentoring, decision systems and contemporary leadership approaches.',
-              },
-              {
-                title: lang === 'tr' ? 'Organizasyonel Dönüşüm' : 'Organizational Transformation',
-                text: lang === 'tr'
-                  ? 'Kültürel dönüşüm, değişim süreçleri ve insan odaklı organizasyon yapıları.'
-                  : 'Cultural transformation, change processes and human-centered organizational structures.',
-              },
-              {
-                title: lang === 'tr' ? 'Dijital Dönüşüm' : 'Digital Transformation',
-                text: lang === 'tr'
-                  ? 'Teknolojiyi insan ve organizasyon gelişimini destekleyen stratejik bir araç olarak konumlandırmak.'
-                  : 'Positioning technology as a strategic tool that supports people and organizational development.',
-              },
-              {
-                title: lang === 'tr' ? 'Düşünsel Gelişim' : 'Perspective and Cognitive Development',
-                text: lang === 'tr'
-                  ? 'Davranış, iletişim, karar psikolojisi ve multidisipliner düşünme sistemleri üzerine çalışmalar.'
-                  : 'Work focused on behavior, communication, decision psychology and multidisciplinary thinking systems.',
-              },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="grid md:grid-cols-2 gap-10 py-14 border-b border-white/10"
-              >
-                <div>
-                  <h3 className="text-3xl md:text-5xl tracking-[-0.03em] font-light leading-[1.1]">
-                    {item.title}
-                  </h3>
-                </div>
-
-                <div>
-                  <p className="text-lg leading-[1.9] text-white/50 font-light max-w-xl">
-                    {item.text}
-                  </p>
-                </div>
+          <div className="grid md:grid-cols-2 gap-px bg-white/5">
+            {t.areas.items.map((item, index) => (
+              <div key={index} className="bg-black p-10 md:p-14">
+                <h3 className="text-2xl font-light mb-6">{item.title}</h3>
+                <p className="text-white/50 leading-relaxed text-lg font-light">
+                  {item.text}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FOR WHO */}
-      <section className="px-8 md:px-20 py-36 border-b border-white/10">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20">
-          <div>
-            <div className="text-[11px] tracking-[0.35em] uppercase text-white/35 mb-8">
-              {lang === 'tr' ? 'Organizasyonlar İçin' : 'For Organizations'}
-            </div>
+      <section id="notes" className="px-6 md:px-10 py-32 border-t border-white/5">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-sm uppercase tracking-[0.35em] text-white/30 mb-16">
+            {t.notes.title}
+          </h2>
 
-            <div className="space-y-5 text-white/55 text-lg leading-[1.9] font-light">
-              <p>{lang === 'tr' ? 'Üst yönetim ekipleri.' : 'Executive leadership teams.'}</p>
-              <p>Dönüşüm süreçleri yaşayan organizasyonlar.</p>
-              <p>Liderlik kültürünü yeniden düşünmek isteyen yapılar.</p>
-              <p>İnsan ve teknoloji arasında daha sağlıklı bir denge arayan ekipler.</p>
-            </div>
-          </div>
-
-          <div>
-            <div className="text-[11px] tracking-[0.35em] uppercase text-white/35 mb-8">
-              {lang === 'tr' ? 'Bireyler İçin' : 'For Individuals'}
-            </div>
-
-            <div className="space-y-5 text-white/55 text-lg leading-[1.9] font-light">
-              <p>{lang === 'tr' ? 'Kariyerinde yeni bir döneme girenler.' : 'People entering a new phase in their careers.'}</p>
-              <p>Liderlik rolü üstlenen profesyoneller.</p>
-              <p>Kendini yeniden yapılandırmak isteyenler.</p>
-              <p>Daha sürdürülebilir bir çalışma ve düşünme biçimi arayanlar.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* INSIGHT */}
-      <section id="journal" className="px-8 md:px-20 py-36 border-b border-white/10">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-[11px] tracking-[0.35em] uppercase text-white/35 mb-10">
-            {lang === 'tr' ? 'Notlar' : 'Notes'}
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              lang === 'tr'
-                ? 'Liderlik bazen cevap vermekten çok, alan açabilmekle ilgili.'
-                : 'Leadership is sometimes less about answers, and more about creating space.',
-              lang === 'tr'
-                ? 'Bir organizasyonun tonu değiştiğinde birçok şey sessizce değişmeye başlıyor.'
-                : 'When the tone of an organization changes, many things begin to shift quietly.',
-              lang === 'tr'
-                ? 'Bazı problemler çözüm eksikliğinden değil, sürekli hızlanmaktan oluşuyor.'
-                : 'Some problems come not from lack of solutions, but from constant acceleration.',
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="border border-white/10 rounded-[30px] p-10 min-h-[260px] flex items-end bg-white/[0.015]"
-              >
-                <p className="text-2xl leading-[1.5] tracking-[-0.02em] text-white/75 font-light">
+          <div className="space-y-px bg-white/5">
+            {t.notes.items.map((item, index) => (
+              <div key={index} className="bg-black p-10 md:p-14">
+                <p className="text-2xl md:text-3xl leading-relaxed text-white/80 font-light">
                   {item}
                 </p>
               </div>
@@ -344,42 +276,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CLOSING */}
-      <section id="contact" className="px-8 md:px-20 py-44 relative overflow-hidden">
-        <div className="max-w-5xl mx-auto relative z-10 text-center">
-          <div className="text-[11px] tracking-[0.35em] uppercase text-white/35 mb-8">
-            AlfaTeta
-          </div>
-
-          <h2 className="text-5xl md:text-[92px] leading-[0.95] tracking-[-0.04em] font-light">
-            {lang === 'tr' ? 'Her şeyi aynı anda çözmek gerekmiyor.' : 'Not everything needs to be solved at once.'}
-          </h2>
-
-          <p className="mt-12 text-lg md:text-xl text-white/50 leading-[1.9] font-light max-w-2xl mx-auto">
-            Bazen doğru birkaç şeyi daha net görmek,
-            dönüşüm için yeterli oluyor.
+      <footer
+        id="contact"
+        className="px-6 md:px-10 py-32 border-t border-white/5"
+      >
+        <div className="max-w-5xl mx-auto text-center">
+          <p className="text-4xl md:text-6xl leading-tight font-light whitespace-pre-line text-white/90">
+            {t.footer.closing}
           </p>
 
-          <button className="mt-16 bg-white text-black px-10 py-5 rounded-full text-sm tracking-wide hover:scale-[1.03] transition-all duration-500">
-            {lang === 'tr' ? 'İletişim' : 'Contact'}e Geç
-          </button>
-        </div>
-
-        <div className="absolute bottom-[-250px] left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-white/[0.03] blur-3xl rounded-full" />
-      </section>
-
-      {/* FOOTER */}
-      <footer className="px-8 md:px-20 py-14 border-t border-white/5 bg-black">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
-          <div>
-            <img
-              src="/logo.png"
-              alt="AlfaTeta"
-              className="h-10 w-auto opacity-90"
-            />
-          </div>
-
-          <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12 text-sm text-white/45 font-light">
+          <div className="flex items-center justify-center gap-6 pt-12 text-sm text-white/45 flex-wrap">
             <a
               href="mailto:info@alfateta.net"
               className="hover:text-white transition-colors duration-300"
@@ -388,15 +294,27 @@ export default function HomePage() {
             </a>
 
             <a
-              href="tel:+905555555555"
+              href="tel:+905332254068"
               className="hover:text-white transition-colors duration-300"
             >
               +90 533 225 4068
             </a>
 
-            <div className="text-white/25">
-              Leadership • Transformation • Development
-            </div>
+            <a
+              href="https://www.linkedin.com/company/alfateta"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="opacity-60 hover:opacity-100 transition-opacity duration-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="w-4 h-4 text-white"
+              >
+                <path d="M4.98 3.5C4.98 4.604 4.104 5.5 3 5.5S1.02 4.604 1.02 3.5 1.896 1.5 3 1.5s1.98.896 1.98 2zM1.5 8h3V22h-3V8zm7.5 0h2.877v1.909h.041c.401-.761 1.381-1.563 2.844-1.563 3.042 0 3.604 2.002 3.604 4.604V22h-3v-6.75c0-1.611-.029-3.682-2.244-3.682-2.247 0-2.592 1.755-2.592 3.566V22h-3V8z" />
+              </svg>
+            </a>
           </div>
         </div>
       </footer>
