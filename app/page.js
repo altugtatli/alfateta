@@ -1,9 +1,16 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function HomePage() {
   const [lang, setLang] = useState('tr')
+  const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    const onKey = (e) => e.key === 'Escape' && setOpen(false)
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
 
   const content = {
     tr: {
@@ -18,6 +25,14 @@ export default function HomePage() {
         subtitle:
           'Liderlik, gelişim, organizasyonel dönüşüm ve dijital çağ adaptasyonu üzerine çalışan bağımsız bir dönüşüm platformu.',
         cta: 'Görüşme planlayın',
+        dialog: {
+          title: 'Görüşme planlayın',
+          text: 'Doğrudan ulaşabilirsiniz:',
+          phone: 'Telefon',
+          email: 'E-posta',
+          whatsapp: 'WhatsApp',
+          close: 'Kapat',
+        },
         panel: 'Dijital dönüşüm ve kurumsal değişim üzerine danışmanlık ve üst düzey yönetici mentorluğu.',
       },
       approach: {
@@ -76,6 +91,14 @@ export default function HomePage() {
         subtitle:
           'An independent transformation platform focused on leadership, development, organizational transformation and digital-age adaptation.',
         cta: 'Book a conversation',
+        dialog: {
+          title: 'Book a conversation',
+          text: 'Reach out directly:',
+          phone: 'Phone',
+          email: 'Email',
+          whatsapp: 'WhatsApp',
+          close: 'Close',
+        },
         panel: 'Consulting on digital and organizational transformation, and executive mentoring.',
       },
       approach: {
@@ -181,12 +204,13 @@ export default function HomePage() {
             <p className="mt-8 text-lg md:text-xl text-slate-600 leading-relaxed max-w-xl">
               {t.hero.subtitle}
             </p>
-            <a
-              href="#contact"
+            <button
+              type="button"
+              onClick={() => setOpen(true)}
               className="inline-block mt-10 bg-[#0E4DA4] text-white font-bold px-7 py-4 rounded hover:bg-[#0A3A7D] transition-colors"
             >
               {t.hero.cta}
-            </a>
+            </button>
           </div>
 
           <div className="bg-slate-50 rounded-md p-10 md:p-12">
@@ -271,6 +295,61 @@ export default function HomePage() {
           </a>
         </div>
       </footer>
+
+      {open && (
+        <div
+          className="fixed inset-0 z-[60] flex items-end md:items-center justify-center bg-slate-900/50 p-0 md:p-6"
+          onClick={() => setOpen(false)}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="contact-dialog-title"
+            onClick={(e) => e.stopPropagation()}
+            className="w-full md:max-w-md bg-white rounded-t-xl md:rounded-xl p-8 shadow-xl"
+          >
+            <div className="flex items-start justify-between mb-2">
+              <h2 id="contact-dialog-title" className="text-xl font-bold text-slate-900">
+                {t.hero.dialog.title}
+              </h2>
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                aria-label={t.hero.dialog.close}
+                className="text-slate-500 hover:text-slate-900 text-2xl leading-none"
+              >
+                ×
+              </button>
+            </div>
+            <p className="text-slate-600 mb-6">{t.hero.dialog.text}</p>
+            <div className="grid gap-3">
+              <a
+                href="tel:+905332254068"
+                className="flex items-center justify-between border border-slate-200 rounded-md px-5 py-4 hover:border-[#0E4DA4] transition-colors"
+              >
+                <span className="font-bold">{t.hero.dialog.phone}</span>
+                <span className="text-slate-600">+90 533 225 4068</span>
+              </a>
+              <a
+                href="mailto:info@alfateta.net"
+                className="flex items-center justify-between border border-slate-200 rounded-md px-5 py-4 hover:border-[#0E4DA4] transition-colors"
+              >
+                <span className="font-bold">{t.hero.dialog.email}</span>
+                <span className="text-slate-600">info@alfateta.net</span>
+              </a>
+              <a
+                href="https://wa.me/905332254068"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between border border-slate-200 rounded-md px-5 py-4 hover:border-[#0E4DA4] transition-colors"
+              >
+                <span className="font-bold">{t.hero.dialog.whatsapp}</span>
+                <span className="text-slate-600">+90 533 225 4068</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   )
 }
