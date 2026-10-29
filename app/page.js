@@ -17,7 +17,7 @@ export default function HomePage() {
       nav: {
         approach: 'Yaklaşım',
         areas: 'Çalışma Alanları',
-        notes: 'Notlar',
+        notes: 'Yansımalar',
         contact: 'İletişim',
       },
       hero: {
@@ -83,7 +83,7 @@ export default function HomePage() {
       nav: {
         approach: 'Approach',
         areas: 'Focus Areas',
-        notes: 'Notes',
+        notes: 'Reflections',
         contact: 'Contact',
       },
       hero: {
