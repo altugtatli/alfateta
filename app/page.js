@@ -23,7 +23,7 @@ export default function HomePage() {
       hero: {
         title: ['İnsan merkezli.', 'Düşünsel.', 'Dönüştürücü.'],
         subtitle:
-          'Liderlik, gelişim, organizasyonel dönüşüm ve dijital çağ adaptasyonu üzerine çalışan bağımsız bir dönüşüm platformu.',
+          'Liderlik, gelişim ve dijital dönüşüm üzerine danışmanlık ve üst düzey yönetici mentorluğu.',
         cta: 'Görüşme planlayın',
         dialog: {
           title: 'Görüşme planlayın',
@@ -33,7 +33,6 @@ export default function HomePage() {
           whatsapp: 'WhatsApp',
           close: 'Kapat',
         },
-        panel: 'Dijital dönüşüm ve kurumsal değişim üzerine danışmanlık ve üst düzey yönetici mentorluğu.',
       },
       approach: {
         title: 'Yaklaşım',
@@ -89,7 +88,7 @@ export default function HomePage() {
       hero: {
         title: ['Human-centered.', 'Thoughtful.', 'Transformative.'],
         subtitle:
-          'An independent transformation platform focused on leadership, development, organizational transformation and digital-age adaptation.',
+          'Consulting and senior executive mentoring on leadership, development and digital transformation.',
         cta: 'Book a conversation',
         dialog: {
           title: 'Book a conversation',
@@ -99,7 +98,6 @@ export default function HomePage() {
           whatsapp: 'WhatsApp',
           close: 'Close',
         },
-        panel: 'Consulting on digital and organizational transformation, and executive mentoring.',
       },
       approach: {
         title: 'Approach',
@@ -193,15 +191,19 @@ export default function HomePage() {
         </div>
       </header>
 
-      <section id="top" className="px-6 md:px-10 pt-20 pb-24 md:pt-28 md:pb-32">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-[1.1fr_0.9fr] gap-16 items-end">
-          <div>
+      <section
+        id="top"
+        className="relative px-6 md:px-10 pt-40 pb-24 md:pt-48 md:pb-40 bg-white border-b border-slate-200"
+        style={{ backgroundImage: "url('/hero-water.jpg')", backgroundSize: 'cover', backgroundPosition: 'right center' }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-2xl">
             <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.02] font-bold tracking-tight text-slate-900">
               {t.hero.title.map((line) => (
                 <span key={line} className="block">{line}</span>
               ))}
             </h1>
-            <p className="mt-8 text-lg md:text-xl text-slate-600 leading-relaxed max-w-xl">
+            <p className="mt-8 text-lg md:text-xl text-slate-700 leading-relaxed max-w-xl">
               {t.hero.subtitle}
             </p>
             <button
@@ -212,20 +214,19 @@ export default function HomePage() {
               {t.hero.cta}
             </button>
           </div>
-
-          <div className="bg-slate-50 rounded-md p-10 md:p-12">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#0E4DA4] mb-8">ALFATETA</p>
-            <img src="/logo.png" alt="AlfaTeta logo" className="w-[180px] md:w-[200px] h-auto" />
-            <p className="mt-8 text-base md:text-lg text-slate-600 leading-relaxed">{t.hero.panel}</p>
-          </div>
         </div>
       </section>
 
       <section id="approach" className="px-6 md:px-10 py-24 border-t border-slate-200">
         <div className="max-w-7xl mx-auto grid md:grid-cols-[1fr_2fr] gap-10 md:gap-16">
-          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[#0E4DA4]">
-            {t.approach.title}
-          </h2>
+          <div className="flex flex-col">
+            <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[#0E4DA4]">
+              {t.approach.title}
+            </h2>
+            <div className="flex-1 flex items-center justify-center min-h-[260px]">
+              <img src="/logo.png" alt="AlfaTeta" className="w-[200px] md:w-[230px] h-auto" />
+            </div>
+          </div>
           <div className="space-y-6 text-xl md:text-2xl leading-relaxed text-slate-800">
             {t.approach.text.map((item, index) => (
               <p key={index}>{item}</p>
